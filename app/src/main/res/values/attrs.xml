@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="View_CharacterSheet_Field">
+        <attr name="borderWidth" format="dimension|reference"/>
+        <attr name="cornerRadius" format="dimension|reference"/>
+        <attr name="borderColor" format="color|reference"/>
+        <attr name="valueColor" format="color|reference"/>
+        <attr name="labelColor" format="color|reference"/>
+        <attr name="label" format="string|reference"/>
+        <attr name="labelFontSize" format="dimension|reference"/>
+        <attr name="value" format="string|reference"/>
+        <attr name="valueFontSize" format="dimension|reference"/>
+    </declare-styleable>
+
+</resources>

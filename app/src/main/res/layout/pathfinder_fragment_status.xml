@@ -86,12 +86,25 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"></LinearLayout>
+        android:padding="5dp">
+
+        <com.thing.rpg_droid.app.View_CharacterSheet_Field
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/view"
+            value="test"
+            label="Thing"
+            borderWidth="1dp"
+            borderColor="#000000"/>
+        
+        </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"></LinearLayout>
+
+
 
 </LinearLayout>
