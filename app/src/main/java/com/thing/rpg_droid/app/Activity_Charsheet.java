@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.thing.rpg_droid.pathfinder.Fragment_Status;
 import com.thing.rpg_droid.res.R;
 
 import java.util.Locale;
@@ -124,7 +126,7 @@ public class Activity_Charsheet extends Activity implements ActionBar.TabListene
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            return Fragment_Status.newInstance(Integer.toString(position + 1),"");
         }
 
         @Override

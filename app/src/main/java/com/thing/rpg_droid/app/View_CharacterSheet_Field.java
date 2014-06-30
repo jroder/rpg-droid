@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -16,13 +17,13 @@ import com.thing.rpg_droid.res.R;
  */
 public class View_CharacterSheet_Field extends View
 {
-    private String mLabel = "2347823";
+    private String mLabel;
 
     private int mLabelFontSize;
 
     private int mLabelWidth;
 
-    private String mValue = "thingyasdasd";
+    private String mValue;
 
     private int mValueFontSize;
 
@@ -37,6 +38,10 @@ public class View_CharacterSheet_Field extends View
     private Paint mTextBrush = new Paint();
 
     private RectF mBorderRect;
+
+    private int mInternalPadding;
+
+    private Rect mTextRect = new Rect();
 
     public View_CharacterSheet_Field(Context pContext)
     {
@@ -69,19 +74,24 @@ public class View_CharacterSheet_Field extends View
         mLabelColor = aTypedArray.getColor(R.styleable.View_CharacterSheet_Field_labelColor, mLabelColor);
 
         mLabelFontSize = (int)(Math.round(8 * dm.scaledDensity));
-        mLabelFontSize = aTypedArray.getDimensionPixelSize(R.styleable.View_CharacterSheet_Field_valueFontSize, mLabelFontSize);
+        mLabelFontSize = aTypedArray.getDimensionPixelSize(R.styleable.View_CharacterSheet_Field_labelFontSize, mLabelFontSize);
 
-        mBorderRadius = aTypedArray.getDimensionPixelSize(R.styleable.View_CharacterSheet_Field_borderColor, mBorderRadius);
+        mBorderRadius = aTypedArray.getDimensionPixelSize(R.styleable.View_CharacterSheet_Field_cornerRadius, mBorderRadius);
 
-        mLabel = "2342324";//aTypedArray.getString(R.styleable.View_CharacterSheet_Field_label);
-        mValue = "klqweo";//aTypedArray.getString(R.styleable.View_CharacterSheet_Field_value);
+        mInternalPadding = (int)(Math.round(5 * dm.scaledDensity));
 
-        int lBorderStrokeWidth = aTypedArray.getDimensionPixelSize(R.styleable.View_CharacterSheet_Field_borderWidth, 0);
+        mLabel = aTypedArray.getString(R.styleable.View_CharacterSheet_Field_label);
+        mValue = aTypedArray.getString(R.styleable.View_CharacterSheet_Field_value);
+
+        mBorderRect = new RectF();
+
+        int lBorderStrokeWidth = aTypedArray.getDimensionPixelSize(R.styleable.View_CharacterSheet_Field_borderWidth, -1);
         int lBorderStrokeColor = aTypedArray.getColor(R.styleable.View_CharacterSheet_Field_borderColor, 0xFFFFFFFF);
 
-        if (lBorderStrokeWidth != 0)
+        if (lBorderStrokeWidth >= 0)
         {
             mBorderStroke = new Paint();
+            mBorderStroke.setStyle(Paint.Style.STROKE);
             mBorderStroke.setColor(lBorderStrokeColor);
             mBorderStroke.setStrokeWidth(lBorderStrokeWidth);
         }
@@ -97,14 +107,22 @@ public class View_CharacterSheet_Field extends View
     protected void onMeasure (int pWidthMeasureSpec, int pHeightMeasureSpec)
     {
         int lWidth = getSuggestedMinimumWidth();
-        int lHeight = Math.max(getSuggestedMinimumHeight(), mValueFontSize);
+        int lHeight = Math.max(getSuggestedMinimumHeight(), Math.max(mLabelFontSize, mValueFontSize));
+        float lBorderWidth = 0;
+
+        if (mBorderStroke != null) //catering for hairline border
+        {
+            lBorderWidth = mBorderStroke.getStrokeWidth();
+            if (lBorderWidth == 0)
+                lBorderWidth = 1;
+        }
 
         if ((mLabel != null) && (!mLabel.equals("")))
         {
             mTextBrush.setTextSize(mLabelFontSize);
             mLabelWidth = (int)Math.ceil(mTextBrush.measureText(mLabel));
 
-            lWidth = Math.max(mLabelWidth + 5, lWidth);
+            lWidth = Math.max(mLabelWidth + mInternalPadding, lWidth);
         }
 
         if ((mValue != null) && (!mValue.equals("")))
@@ -113,7 +131,12 @@ public class View_CharacterSheet_Field extends View
             lWidth += (int) Math.ceil(mTextBrush.measureText(mValue));
         }
 
-        mBorderRect = new RectF(0, 0, lWidth, lHeight);
+        lWidth += getPaddingLeft() + getPaddingRight() + 2 * lBorderWidth;
+
+        lHeight += getPaddingTop() + getPaddingBottom() + 2 * lBorderWidth;
+
+        lWidth = resolveSizeAndState(lWidth, pWidthMeasureSpec, 0);
+        lHeight = resolveSizeAndState(lHeight, pHeightMeasureSpec, 0);
 
         setMeasuredDimension(lWidth, lHeight);
     }
@@ -123,22 +146,41 @@ public class View_CharacterSheet_Field extends View
     {
         super.onDraw(pCanvas);
 
+        float lBorderWidth = 0;
+
+        if (mBorderStroke != null) //catering for hairline border
+        {
+            lBorderWidth = mBorderStroke.getStrokeWidth();
+            if (lBorderWidth == 0)
+                lBorderWidth = 1;
+        }
+
+        float lPosX = getPaddingLeft() + lBorderWidth;
+
+        float lVertPadding = getPaddingTop() + getPaddingBottom() + 2 * lBorderWidth;
+
         if ((mLabel != null) && (!mLabel.equals("")))
         {
             mTextBrush.setColor(mLabelColor);
             mTextBrush.setTextSize(mLabelFontSize);
-            pCanvas.drawText(mLabel, 0, 0, mTextBrush);
+            mTextBrush.getTextBounds(mLabel,0,mLabel.length(),mTextRect);
+
+            pCanvas.drawText(mLabel, lPosX, getPaddingTop() + lBorderWidth - mTextBrush.ascent() - mTextBrush.descent(), mTextBrush);
+
+            lPosX += mLabelWidth + mInternalPadding;
         }
 
         if ((mValue != null) && (!mValue.equals("")))
         {
             mTextBrush.setColor(mValueColor);
-            mTextBrush.setTextSize(mLabelFontSize);
-            pCanvas.drawText(mValue, mLabelWidth, 0, mTextBrush);
+            mTextBrush.setTextSize(mValueFontSize);
+            pCanvas.drawText(mValue, lPosX, (getHeight() - (mTextBrush.ascent() + mTextBrush.descent())) / 2, mTextBrush);
         }
 
         if (mBorderStroke != null)
         {
+            mBorderRect.set(0, 0, getWidth()-1, getHeight()-1);
+
             if (mBorderRadius != 0)
                 pCanvas.drawRoundRect(mBorderRect, mBorderRadius, mBorderRadius, mBorderStroke);
             else
