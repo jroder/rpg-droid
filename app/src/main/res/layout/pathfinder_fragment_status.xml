@@ -4,8 +4,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.thing.rpg_droid.pathfinder.Fragment_Status"
-    android:weightSum="1">
-
+    android:weightSum="1"
+    android:baselineAligned="false">
 
 
 
@@ -14,24 +14,156 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5">
 
+            <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                style="@style/View_CharacterSheet_Field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                rpg-droid:value="Hero Name"
+                rpg-droid:label="Name:"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                    style="@style/View_CharacterSheet_Field"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    rpg-droid:value="17"
+                    rpg-droid:label="AC:"/>
+                <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                    style="@style/View_CharacterSheet_Field"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    rpg-droid:value="24"
+                    rpg-droid:label="Touch:"/>
+                <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                    style="@style/View_CharacterSheet_Field"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    rpg-droid:value="24"
+                    rpg-droid:label="Flat Footed:"/>
+                <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                    style="@style/View_CharacterSheet_Field"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    rpg-droid:value="5"
+                    rpg-droid:label="Init:"/>
+                <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                    style="@style/View_CharacterSheet_Field"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    rpg-droid:value="5"
+                    rpg-droid:label="Speed:"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            rpg-droid:value="Hero Name"
-            rpg-droid:label="Name:"/>
-
-        <com.thing.rpg_droid.app.View_CharacterSheet_Field
-            style="@style/View_CharacterSheet_Field"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             rpg-droid:value="24"
             rpg-droid:label="HP:"/>
+    </LinearLayout>
 
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.thing.rpg_droid.app.View_CharacterSheet_Field
+            style="@style/View_CharacterSheet_Field"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            rpg-droid:value="00"
+            rpg-droid:label="CMD:"/>
+        <com.thing.rpg_droid.app.View_CharacterSheet_Field
+            style="@style/View_CharacterSheet_Field"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            rpg-droid:value="00"
+            rpg-droid:label="Save:"/>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Skill"
+                android:id="@+id/button"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Spell / Ability"
+                android:id="@+id/button2"
+                android:layout_below="@+id/button"
+                android:layout_alignLeft="@+id/button"
+                android:layout_alignStart="@+id/button"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/divider"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.thing.rpg_droid.app.View_CharacterSheet_Field
+            style="@style/View_CharacterSheet_Field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            rpg-droid:value="Scimitar"
+            rpg-droid:label="Main Hand:"/>
+
+        <com.thing.rpg_droid.app.View_CharacterSheet_Field
+            style="@style/View_CharacterSheet_Field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            rpg-droid:value="6"
+            rpg-droid:label="Attack:"/>
+
+        <com.thing.rpg_droid.app.View_CharacterSheet_Field
+            style="@style/View_CharacterSheet_Field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            rpg-droid:value="x2"
+            rpg-droid:label="Crit:"/>
 
     </LinearLayout>
 
@@ -45,36 +177,67 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            rpg-droid:value="17"
-            rpg-droid:label="AC:"/>
+            rpg-droid:value="Duh"
+            rpg-droid:label="Type:"/>
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            rpg-droid:value="24"
-            rpg-droid:label="Touch:"/>
+            rpg-droid:value="50'"
+            rpg-droid:label="Range:"/>
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            rpg-droid:value="24"
-            rpg-droid:label="Flat Footed:"/>
+            rpg-droid:value="--"
+            rpg-droid:label="Ammo:"/>
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            rpg-droid:value="5"
-            rpg-droid:label="Init:"/>
+            rpg-droid:value="1D6 + 4"
+            rpg-droid:label="Damage:"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/divider"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.thing.rpg_droid.app.View_CharacterSheet_Field
+            style="@style/View_CharacterSheet_Field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            rpg-droid:value=""
+            rpg-droid:label="Off Hand:"/>
+
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            rpg-droid:value="5"
-            rpg-droid:label="Speed:"/>
+            rpg-droid:value=""
+            rpg-droid:label="Attack:"/>
+
+        <com.thing.rpg_droid.app.View_CharacterSheet_Field
+            style="@style/View_CharacterSheet_Field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            rpg-droid:value=""
+            rpg-droid:label="Crit:"/>
 
     </LinearLayout>
 
@@ -83,16 +246,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        
+        <com.thing.rpg_droid.app.View_CharacterSheet_Field
+            style="@style/View_CharacterSheet_Field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            rpg-droid:value=""
+            rpg-droid:label="Type:"/>
+        <com.thing.rpg_droid.app.View_CharacterSheet_Field
+            style="@style/View_CharacterSheet_Field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            rpg-droid:value="'"
+            rpg-droid:label="Range:"/>
+        <com.thing.rpg_droid.app.View_CharacterSheet_Field
+            style="@style/View_CharacterSheet_Field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            rpg-droid:value=""
+            rpg-droid:label="Ammo:"/>
+        <com.thing.rpg_droid.app.View_CharacterSheet_Field
+            style="@style/View_CharacterSheet_Field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            rpg-droid:value=""
+            rpg-droid:label="Damage:"/>
+
     </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </LinearLayout>
-
-
 
 </LinearLayout>

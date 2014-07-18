@@ -110,7 +110,7 @@ public class View_CharacterSheet_Field extends View
         int lHeight = Math.max(getSuggestedMinimumHeight(), Math.max(mLabelFontSize, mValueFontSize));
         float lBorderWidth = 0;
 
-        if (mBorderStroke != null) //catering for hairline border
+        if (mBorderStroke != null) //catering for hairline divider
         {
             lBorderWidth = mBorderStroke.getStrokeWidth();
             if (lBorderWidth == 0)
@@ -148,7 +148,7 @@ public class View_CharacterSheet_Field extends View
 
         float lBorderWidth = 0;
 
-        if (mBorderStroke != null) //catering for hairline border
+        if (mBorderStroke != null) //catering for hairline divider
         {
             lBorderWidth = mBorderStroke.getStrokeWidth();
             if (lBorderWidth == 0)
@@ -174,6 +174,9 @@ public class View_CharacterSheet_Field extends View
         {
             mTextBrush.setColor(mValueColor);
             mTextBrush.setTextSize(mValueFontSize);
+
+            lPosX = getWidth() - (lBorderWidth + getPaddingRight()) - (int)Math.ceil(mTextBrush.measureText(mValue));
+
             pCanvas.drawText(mValue, lPosX, (getHeight() - (mTextBrush.ascent() + mTextBrush.descent())) / 2, mTextBrush);
         }
 
@@ -186,7 +189,7 @@ public class View_CharacterSheet_Field extends View
             else
                 pCanvas.drawRect(mBorderRect, mBorderStroke);
         }
-        //paint border
+        //paint divider
     }
 
 }
