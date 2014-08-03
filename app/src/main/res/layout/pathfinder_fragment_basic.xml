@@ -28,7 +28,7 @@
             rpg-droid:label="Level:"/>
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
-            android:id="@+id/class"
+            android:id="@+id/charclass"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"

@@ -13,13 +13,13 @@ import com.thing.rpg_droid.res.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Fragment_Status.OnFragmentInteractionListener} interface
+ * {@link Fragment_Gear.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Fragment_Status#newInstance} factory method to
+ * Use the {@link Fragment_Gear#newInstance} factory method to
  * create an instance of this fragment.
  *
  */
-public class Fragment_Status extends Fragment {
+public class Fragment_Gear extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,11 +37,11 @@ public class Fragment_Status extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment_Status.
+     * @return A new instance of fragment Fragment_Gear.
      */
     // TODO: Rename and change types and number of parameters
-    public static Fragment_Status newInstance(String param1, String param2) {
-        Fragment_Status fragment = new Fragment_Status();
+    public static Fragment_Gear newInstance(String param1, String param2) {
+        Fragment_Gear fragment = new Fragment_Gear();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -51,10 +51,10 @@ public class Fragment_Status extends Fragment {
 
     public static String getTitle()
     {
-        return "Status";
+        return "Gear";
     }
 
-    public Fragment_Status() {
+    public Fragment_Gear() {
         // Required empty public constructor
     }
 
@@ -71,7 +71,7 @@ public class Fragment_Status extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.pathfinder_fragment_status, container, false);
+        return inflater.inflate(R.layout.fragment_gear, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -84,12 +84,12 @@ public class Fragment_Status extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        /*try {
+        try {
             mListener = (OnFragmentInteractionListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
-        }*/
+        }
     }
 
     @Override

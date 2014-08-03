@@ -48,6 +48,12 @@ public class Fragment_Basic extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
+    public static String getTitle()
+    {
+        return "Details";
+    }
+
     public Fragment_Basic() {
         // Required empty public constructor
     }

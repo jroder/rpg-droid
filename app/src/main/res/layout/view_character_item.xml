@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivGame"
+        android:src="@drawable/ic_launcher"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Character Name"
+        android:id="@+id/tvName"
+        android:textSize="25dp"
+        android:textColor="#ff4592ff"
+        android:textStyle="bold"
+        android:textIsSelectable="false"
+        android:layout_toRightOf="@id/ivGame"
+        android:paddingStart="15dp"
+        android:layout_alignBottom="@+id/ivGame" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level XX - Class"
+        android:id="@+id/tvSummary"
+        android:layout_toRightOf="@+id/tvName"
+        android:paddingStart="10dp"
+        android:textStyle="italic"
+        android:textSize="15dp"
+        android:layout_alignBaseline="@+id/tvName" />
+</RelativeLayout>
