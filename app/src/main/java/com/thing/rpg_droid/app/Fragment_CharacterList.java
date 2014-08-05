@@ -1,6 +1,7 @@
 package com.thing.rpg_droid.app;
 
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -51,11 +52,11 @@ public class Fragment_CharacterList extends ListFragment
     @Override
     public View onCreateView(LayoutInflater pInflater, ViewGroup pContainer, Bundle pSavedInstanceState)
     {
-        ListView lRoot = (ListView)pInflater.inflate(R.layout.fragment_characterlist, pContainer, false);
+        ListView lListView = (ListView)pInflater.inflate(R.layout.fragment_characterlist, pContainer, false);
 
-        lRoot.setAdapter(mCharListAdapter);
+        lListView.setAdapter(mCharListAdapter);
 
-        return lRoot;
+        return lListView;
     }
 
     public static class CharacterListItem implements Parcelable
@@ -198,6 +199,16 @@ public class Fragment_CharacterList extends ListFragment
                 lHolder.nameView = (TextView) lView.findViewById(R.id.tvName);
                 lHolder.summaryView = (TextView) lView.findViewById(R.id.tvSummary);
 
+                lView.setOnClickListener(new View.OnClickListener() {
+
+                     @Override
+                     public void onClick(View pView)
+                     {
+                         Intent lIntent = new Intent(getActivity(), Activity_Charsheet.class);
+                         startActivity(lIntent);
+                     }
+                } );
+
                 lView.setTag(lHolder);
             }
 
@@ -233,5 +244,4 @@ public class Fragment_CharacterList extends ListFragment
             }
         }
     }
-
 }
