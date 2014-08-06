@@ -4,12 +4,16 @@
 
 package com.thing.rpg_droid.pathfinder;
 
+import android.app.Fragment;
+
+import com.thing.rpg_droid.app.ICharacter;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.EnumMap;
 
-public class Character
+public class Character implements ICharacter
 { 
 	private String mName = "";
 
@@ -66,6 +70,27 @@ public class Character
     {
 
     }
+
+    @Override
+    public int getPageCount()
+    {
+        return 5;
+    }
+
+    @Override
+    public Class<? extends Fragment> getPageFragmentClass(int pIndex)
+    {
+        switch (pIndex)
+        {
+            case 0:return Fragment_Status.class;
+            case 1:return Fragment_Basic.class;
+            case 2:return Fragment_Skills.class;
+            case 3:return Fragment_Spells_Abilities.class;
+            case 4:return Fragment_Gear.class;
+        }
+
+        return null;
+    }
 	
 	public String getName() { return mName; }
 	
@@ -89,6 +114,4 @@ public class Character
                 getAbility(Ability.AbilityName.DEX).getCurrentModifier() + mSize.getValue() + 10;
         //TODO other bonuses
     }
-
-
 }

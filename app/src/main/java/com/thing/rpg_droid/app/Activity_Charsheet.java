@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import com.thing.rpg_droid.res.R;
+
+import java.util.UUID;
 
 public class Activity_Charsheet extends Activity implements ActionBar.TabListener {
 
@@ -23,7 +26,22 @@ public class Activity_Charsheet extends Activity implements ActionBar.TabListene
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        mSectionsPagerAdapter = new PagerAdapter_Charsheet(getFragmentManager());
+        Bundle lExtras = getIntent().getExtras();
+        if ((lExtras != null) && (lExtras.containsKey("CharacterID")))
+        {
+            UUID lCharID = (UUID)lExtras.get("CharacterID");
+
+
+            //load character
+        }
+        else
+        {
+            //what?
+
+        }
+
+
+        mSectionsPagerAdapter = new PagerAdapter_Charsheet(getFragmentManager()); //pass the character to the pager, so it can get pages.
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);

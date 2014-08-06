@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.thing.rpg_droid.res.R;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Fragment_CharacterList extends ListFragment
 {
@@ -40,7 +41,7 @@ public class Fragment_CharacterList extends ListFragment
         {
             lChars = new ArrayList<CharacterListItem>();
 
-            lChars.add(new CharacterListItem("Argus Peabody","Magus","4"));
+            lChars.add(new CharacterListItem(UUID.randomUUID(), "Argus Peabody","Magus","4"));
             //TODO load character list from file.
         }
 
@@ -61,12 +62,14 @@ public class Fragment_CharacterList extends ListFragment
 
     public static class CharacterListItem implements Parcelable
     {
+        UUID characterID;
         String characterName;
         String characterClass;
         String characterLevel;
 
-        public CharacterListItem(String pName, String pClass, String pLevel)
+        public CharacterListItem(UUID pId, String pName, String pClass, String pLevel)
         {
+            characterID = pId;
             characterName = pName;
             characterClass = pClass;
             characterLevel = pLevel;
@@ -74,6 +77,7 @@ public class Fragment_CharacterList extends ListFragment
 
         public CharacterListItem(Parcel pIn)
         {
+            characterID = UUID.fromString(pIn.readString());
             characterName = pIn.readString();
             characterClass = pIn.readString();
             characterLevel = pIn.readString();
@@ -94,6 +98,7 @@ public class Fragment_CharacterList extends ListFragment
 
         public void writeToParcel(Parcel out, int flags)
         {
+            out.writeString(characterID.toString());
             out.writeString(characterName);
             out.writeString(characterClass);
             out.writeString(characterLevel);
@@ -116,6 +121,7 @@ public class Fragment_CharacterList extends ListFragment
 
     private static class CharacterListViewHolder
     {
+        public UUID characterID;
         public ImageView gameView;  //image icon for game type
         public TextView nameView;   //name of char
         public TextView summaryView;//char summary
@@ -205,6 +211,9 @@ public class Fragment_CharacterList extends ListFragment
                      public void onClick(View pView)
                      {
                          Intent lIntent = new Intent(getActivity(), Activity_Charsheet.class);
+
+                         lIntent.putExtra("CharacterID", lHolder.characterID);
+
                          startActivity(lIntent);
                      }
                 } );
@@ -215,11 +224,13 @@ public class Fragment_CharacterList extends ListFragment
             if (pPosition < mCharItems.size()) {
                 final CharacterListItem lItem = mCharItems.get(pPosition);
 
+                ((CharacterListViewHolder) lView.getTag()).characterID = lItem.characterID;
                 ((CharacterListViewHolder) lView.getTag()).nameView.setTextColor(0xff4592ff);
                 ((CharacterListViewHolder) lView.getTag()).nameView.setText(lItem.characterName);
                 ((CharacterListViewHolder) lView.getTag()).summaryView.setText(lItem.getSummary());
             }
             else {
+                ((CharacterListViewHolder) lView.getTag()).characterID = null;
                 ((CharacterListViewHolder) lView.getTag()).nameView.setTextColor(0xff9a9a9a);
                 ((CharacterListViewHolder) lView.getTag()).nameView.setText("Add Character");
                 ((CharacterListViewHolder) lView.getTag()).summaryView.setText("");
