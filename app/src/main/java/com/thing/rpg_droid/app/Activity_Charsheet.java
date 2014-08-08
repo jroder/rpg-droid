@@ -8,11 +8,14 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.thing.rpg_droid.pathfinder.Character;
 import com.thing.rpg_droid.res.R;
 
 import java.util.UUID;
 
 public class Activity_Charsheet extends Activity implements ActionBar.TabListener {
+
+    ICharacter mCharacter;
 
     PagerAdapter_Charsheet mSectionsPagerAdapter;
 
@@ -26,22 +29,24 @@ public class Activity_Charsheet extends Activity implements ActionBar.TabListene
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
+
+
         Bundle lExtras = getIntent().getExtras();
         if ((lExtras != null) && (lExtras.containsKey("CharacterID")))
         {
             UUID lCharID = (UUID)lExtras.get("CharacterID");
 
-
+            mCharacter = new Character();
             //load character
         }
         else
         {
             //what?
-
+            mCharacter = new Character();
         }
 
 
-        mSectionsPagerAdapter = new PagerAdapter_Charsheet(getFragmentManager()); //pass the character to the pager, so it can get pages.
+        mSectionsPagerAdapter = new PagerAdapter_Charsheet(getFragmentManager(), mCharacter);
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);

@@ -123,7 +123,7 @@ public class Fragment_CharacterList extends ListFragment
     {
         public UUID characterID;
         public ImageView gameView;  //image icon for game type
-        public TextView nameView;   //name of char
+        public TextView nameView;   //title of char
         public TextView summaryView;//char summary
     }
 
