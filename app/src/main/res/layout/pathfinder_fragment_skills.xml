@@ -1,0 +1,12 @@
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:id="@+id/skill_list"
+          android:descendantFocusability="blocksDescendants"
+          tools:context="com.thing.rpg_droid.app.Activity_CharacterList$PlaceholderFragment"
+          android:clickable="true"
+          android:focusable="true"
+          android:focusableInTouchMode="true"
+          android:choiceMode="none">
+</ListView>

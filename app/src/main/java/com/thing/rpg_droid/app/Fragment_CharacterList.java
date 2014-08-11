@@ -1,6 +1,7 @@
 package com.thing.rpg_droid.app;
 
 import android.app.ListFragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
@@ -45,7 +46,7 @@ public class Fragment_CharacterList extends ListFragment
             //TODO load character list from file.
         }
 
-        mCharListAdapter = new CharacterListItemAdapter(lChars);
+        mCharListAdapter = new CharacterListItemAdapter(getActivity(), lChars);
 
         setHasOptionsMenu(true);
     }
@@ -127,13 +128,17 @@ public class Fragment_CharacterList extends ListFragment
         public TextView summaryView;//char summary
     }
 
-    private class CharacterListItemAdapter extends BaseAdapter
+    private static class CharacterListItemAdapter extends BaseAdapter
     {
         private ArrayList<CharacterListItem> mCharItems;
 
-        public CharacterListItemAdapter(ArrayList<CharacterListItem> pChars)
+        private Context mContext;
+
+        public CharacterListItemAdapter(Context pContext, ArrayList<CharacterListItem> pChars)
         {
             super();
+
+            mContext = pContext;
 
             if (pChars != null)
                 mCharItems = pChars;
@@ -174,13 +179,15 @@ public class Fragment_CharacterList extends ListFragment
         @Override
         public Object getItem(int pPosition)
         {
-            if (mCharItems != null) {
+            if (mCharItems != null)
+            {
                 if (pPosition < mCharItems.size())
                     return mCharItems.get(pPosition);
                 else
                     return null;
             }
-            else {
+            else
+            {
                 return null;
             }
         }
@@ -194,10 +201,12 @@ public class Fragment_CharacterList extends ListFragment
         @Override
         public View getView(int pPosition, View pConvertView, ViewGroup pParent)
         {
-            ViewGroup lView = (ViewGroup)pConvertView;
+            ViewGroup lView = (ViewGroup) pConvertView;
 
-            if (pConvertView == null) {
-                lView = (ViewGroup) getActivity().getLayoutInflater().inflate(R.layout.view_character_item, pParent, false);
+            if (pConvertView == null)
+            {
+                lView = (ViewGroup) LayoutInflater.from(mContext).inflate(
+                        R.layout.view_character_item, pParent, false);
 
                 final CharacterListViewHolder lHolder = new CharacterListViewHolder();
 
@@ -205,23 +214,25 @@ public class Fragment_CharacterList extends ListFragment
                 lHolder.nameView = (TextView) lView.findViewById(R.id.tvName);
                 lHolder.summaryView = (TextView) lView.findViewById(R.id.tvSummary);
 
-                lView.setOnClickListener(new View.OnClickListener() {
+                lView.setOnClickListener(new View.OnClickListener()
+                {
 
-                     @Override
-                     public void onClick(View pView)
-                     {
-                         Intent lIntent = new Intent(getActivity(), Activity_Charsheet.class);
+                    @Override
+                    public void onClick(View pView)
+                    {
+                        Intent lIntent = new Intent(mContext, Activity_Charsheet.class);
 
-                         lIntent.putExtra("CharacterID", lHolder.characterID);
+                        lIntent.putExtra("CharacterID", lHolder.characterID);
 
-                         startActivity(lIntent);
-                     }
-                } );
+                        mContext.startActivity(lIntent);
+                    }
+                });
 
                 lView.setTag(lHolder);
             }
 
-            if (pPosition < mCharItems.size()) {
+            if (pPosition < mCharItems.size())
+            {
                 final CharacterListItem lItem = mCharItems.get(pPosition);
 
                 ((CharacterListViewHolder) lView.getTag()).characterID = lItem.characterID;
@@ -229,7 +240,8 @@ public class Fragment_CharacterList extends ListFragment
                 ((CharacterListViewHolder) lView.getTag()).nameView.setText(lItem.characterName);
                 ((CharacterListViewHolder) lView.getTag()).summaryView.setText(lItem.getSummary());
             }
-            else {
+            else
+            {
                 ((CharacterListViewHolder) lView.getTag()).characterID = null;
                 ((CharacterListViewHolder) lView.getTag()).nameView.setTextColor(0xff9a9a9a);
                 ((CharacterListViewHolder) lView.getTag()).nameView.setText("Add Character");
@@ -242,7 +254,8 @@ public class Fragment_CharacterList extends ListFragment
         @Override
         public int getItemViewType(int pPosition)
         {
-            if (pPosition < mCharItems.size()) {
+            if (pPosition < mCharItems.size())
+            {
                 final CharacterListItem lItem = mCharItems.get(pPosition);
                 if (lItem != null)
                     return 0;

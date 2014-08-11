@@ -16,31 +16,71 @@ public class Skill
 
     private boolean mClass = false;
 
-    public Skill () { }
-
-    public Skill(int pRanks, int pMisc, Ability.AbilityName pAbility, boolean pClass)
+    public Skill()
     {
+    }
+
+    public Skill(int pRanks, int pMisc, String pName, Ability.AbilityName pAbility, boolean pClass)
+    {
+        mName = pName;
         mRanks = pRanks;
         mMisc = pMisc;
         mAbility = pAbility;
         mClass = pClass;
     }
 
-    public String getName() { return mName; }
+    public String getName()
+    {
+        return mName;
+    }
 
-    public void setName(String pValue) { mName = pValue; }
+    public void setName(String pValue)
+    {
+        mName = pValue;
+    }
 
-    public int getRanks() { return mRanks; }
+    public int getRanks()
+    {
+        return mRanks;
+    }
 
-    public void setRanks(int pRanks) { mRanks = pRanks; }
+    public void setRanks(int pRanks)
+    {
+        mRanks = pRanks;
+    }
 
-    public int getMisc() { return mMisc; }
+    public int getMisc()
+    {
+        return mMisc;
+    }
 
-    public void setMisc(int pMisc) { mMisc = pMisc; }
+    public void setMisc(int pMisc)
+    {
+        mMisc = pMisc;
+    }
 
-    public Ability.AbilityName getAbility() { return mAbility; }
+    public Ability.AbilityName getAbility()
+    {
+        return mAbility;
+    }
 
-    public void setAbility(Ability.AbilityName pAbility) { mAbility = pAbility; }
+    public void setAbility(Ability.AbilityName pAbility)
+    {
+        mAbility = pAbility;
+    }
 
+    public boolean getClassSkill()
+    {
+        return mClass;
+    }
 
+    public void setClassSkill(boolean pValue)
+    {
+        mClass = pValue;
+    }
+
+    public int getTotal()
+    {
+        return 0; //todo nyi
+    }
 }
