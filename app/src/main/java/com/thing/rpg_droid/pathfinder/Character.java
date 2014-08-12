@@ -6,6 +6,8 @@ package com.thing.rpg_droid.pathfinder;
 
 import android.app.Fragment;
 
+import com.thing.rpg_droid.Utils.DieRoller;
+import com.thing.rpg_droid.Utils.DieType;
 import com.thing.rpg_droid.app.ICharacter;
 
 import java.io.InputStream;
@@ -49,7 +51,11 @@ public class Character implements ICharacter
 	
 	public Character()
 	{
-		
+        mName = "New Character";
+        mClassName = "No Class";
+        RandomizeAbilities();
+
+
 	}
 
     /***
@@ -70,6 +76,26 @@ public class Character implements ICharacter
     {
 
     }
+
+    private void GenerateSkillList()
+    {
+        for (String lSkillName : Skill.standardList.keySet())
+        {
+            Skill lSkill = new Skill(0, 0, lSkillName, Skill.standardList.get(lSkillName), false);
+
+            mSkills.add(lSkill);
+        }
+    }
+
+    private void RandomizeAbilities()
+    {
+        for (Ability.AbilityName lAbilityName : Ability.AbilityName.values())
+        {
+            mAbilities.put(lAbilityName, new Ability(DieRoller.RollAndTotal(DieType.D6, 4, 1), 0));
+        }
+    }
+
+
 
     @Override
     public int getPageCount()
