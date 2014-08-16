@@ -14,22 +14,37 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.List;
 
 public class Character implements ICharacter
 { 
 	private String mName = "";
 
+    private int mLevel = 1;
+
     private String mClassName = "";
-	
-	private int mLevel = 1;
+
+    private int mAge = 20;
+
+    private Appearance mAppearance = new Appearance();
 
     private SizeModifier mSize = SizeModifier.Medium;
-	
-	private Appearance mAppearance = new Appearance();
-	
+
+    private DieType mHitDie = DieType.D8;
+
+    private int mBaseHitPoints = 0;
+
+    private int mBaseAttackBonus = 0;
+
+    private ArmorClass mArmorClass = new ArmorClass();
+
 	private EnumMap<Ability.AbilityName, Ability> mAbilities = new EnumMap<Ability.AbilityName, Ability>(Ability.AbilityName.class);
 
     private EnumMap<SavingThrow.SaveType, SavingThrow> mSavingThrows = new EnumMap<SavingThrow.SaveType, SavingThrow>(SavingThrow.SaveType.class);
+
+    private ArrayList<Skill> mSkills = new ArrayList<Skill>();
+
+    private ArrayList<Spell> mSpells = new ArrayList<Spell>();
 
     private EnumMap<BodySlot, IInventoryLocation> mEquipped = new EnumMap<BodySlot, IInventoryLocation>(BodySlot.class);
 
@@ -39,34 +54,15 @@ public class Character implements ICharacter
 
     //TODO gear referring to slot
 
-	private ArrayList<Skill> mSkills = new ArrayList<Skill>();
-	
-	private ArrayList<Spell> mSpells = new ArrayList<Spell>();
-
-    private ArmorClass mArmorClass = new ArmorClass();
-
-    private int mBaseAttackBonus = 0;
-
-    private int mTotalHitPoints = 0;
-	
 	public Character()
 	{
         mName = "New Character";
         mClassName = "No Class";
         RandomizeAbilities();
+        GenerateSkillList();
 
-
+        mBaseHitPoints = DieRoller.Roll(mHitDie);
 	}
-
-    /***
-     *
-     * @param pStream
-     * @return
-     */
-    static public Character Load(InputStream pStream)
-    {
-        return null;
-    }
 
     /***
      *
@@ -75,6 +71,22 @@ public class Character implements ICharacter
     public void Save(OutputStream pStream)
     {
 
+    }
+
+    private void RandomizeAbilities()
+    {
+        for (Ability.AbilityName lAbilityName : Ability.AbilityName.values())
+        {
+            mAbilities.put(lAbilityName, new Ability(DieRoller.RollAndTotal(DieType.D6, 4, 1), 0));
+        }
+    }
+
+    private void InitializeSaves()
+    {
+        for (SavingThrow.SaveType lSaveType : SavingThrow.SaveType.values())
+        {
+            mSavingThrows.put(lSaveType, new SavingThrow());
+        }
     }
 
     private void GenerateSkillList()
@@ -87,13 +99,67 @@ public class Character implements ICharacter
         }
     }
 
-    private void RandomizeAbilities()
+	public String getName() { return mName; }
+	
+	public void setName(String pName) { mName = pName; }
+
+    public int getLevel() { return mLevel; }
+
+    public void setLevel(int pValue) { mLevel = pValue; }
+
+    public String getClassName() { return mClassName; }
+
+    public void setClassName(String pValue) { mClassName = pValue; }
+
+    public int getAge() { return mAge; }
+
+    public void setAge(int pValue) { mAge = pValue; }
+
+    public Appearance getAppearance() { return mAppearance; }
+
+    public SizeModifier getSize() { return mSize; }
+
+    public void setSize(SizeModifier pValue) { mSize = pValue; }
+
+    public DieType getHitDie() { return mHitDie; }
+
+    public void setHitDie(DieType pValue) { mHitDie = pValue; }
+
+    public int getBaseHitPoints() { return mBaseHitPoints; }
+
+    public void setBaseHitPoints(int pValue) { mBaseHitPoints = pValue; }
+
+    public int getTotalHitPoints() { return 0; }//TODO get how.
+
+    public int getBaseAttackBonus() { return mBaseAttackBonus; }
+
+    public void setBaseAttackBonus(int pValue) { mBaseAttackBonus = pValue; }
+
+    //TODO weapon attack bonuses?
+
+    public int getCMB()
     {
-        for (Ability.AbilityName lAbilityName : Ability.AbilityName.values())
-        {
-            mAbilities.put(lAbilityName, new Ability(DieRoller.RollAndTotal(DieType.D6, 4, 1), 0));
-        }
+        return mBaseAttackBonus + getAbility(Ability.AbilityName.STR).getCurrentModifier() + mSize.getValue();
+        //TODO other bonuses
     }
+
+    public ArmorClass getArmorClass() { return mArmorClass; }
+
+    public int getCMD()
+    {
+        return mBaseAttackBonus + getAbility(Ability.AbilityName.STR).getCurrentModifier()+
+                getAbility(Ability.AbilityName.DEX).getCurrentModifier() + mSize.getValue() + 10;
+        //TODO other bonuses
+    }
+	
+	public Ability getAbility(Ability.AbilityName pName) { return mAbilities.get(pName); }
+
+    public SavingThrow getSavingThrow(SavingThrow.SaveType pType) { return mSavingThrows.get(pType); }
+
+    public List<Skill> getSkillList() { return mSkills; }
+
+    public List<Spell> getSpellList() { return mSpells; }
+
 
 
 
@@ -117,27 +183,15 @@ public class Character implements ICharacter
 
         return null;
     }
-	
-	public String getName() { return mName; }
-	
-	public void setName(String pName) { mName = pName; }
-	
-	public Ability getAbility(Ability.AbilityName pName) { return mAbilities.get(pName); }
-	
-	public void setAbility(Ability.AbilityName pName, Ability pAbility) { mAbilities.put(pName, pAbility); }
 
-    public SavingThrow getSavingThrow(SavingThrow.SaveType pType) { return mSavingThrows.get(pType); }
 
-    public int getCMB()
+    /***
+     *
+     * @param pStream
+     * @return
+     */
+    static public Character Load(InputStream pStream)
     {
-        return mBaseAttackBonus + getAbility(Ability.AbilityName.STR).getCurrentModifier() + mSize.getValue();
-        //TODO other bonuses
-    }
-
-    public int getCMD()
-    {
-        return mBaseAttackBonus + getAbility(Ability.AbilityName.STR).getCurrentModifier()+
-                getAbility(Ability.AbilityName.DEX).getCurrentModifier() + mSize.getValue() + 10;
-        //TODO other bonuses
+        return null;
     }
 }
