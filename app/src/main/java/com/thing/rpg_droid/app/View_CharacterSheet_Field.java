@@ -60,6 +60,16 @@ public class View_CharacterSheet_Field extends View
         Init(pContext, pAttrs, pDefStyleAttr);
     }
 
+    public String getValue()
+    {
+        return mValue;
+    }
+
+    public void setValue(String pValue)
+    {
+        mValue = pValue;
+    }
+
     private void Init(Context pContext, AttributeSet pAttrs, int pDefStyleAttr)
     {
         DisplayMetrics dm = getResources().getDisplayMetrics();

@@ -21,6 +21,11 @@ public class Activity_Charsheet extends Activity implements ActionBar.TabListene
 
     ViewPager mViewPager;
 
+    public ICharacter getCharacter()
+    {
+        return mCharacter;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -26,6 +26,10 @@ public class Character implements ICharacter
 
     private int mAge = 20;
 
+    private String mRace = "Human";
+
+    private String mGender = "M";
+
     private Appearance mAppearance = new Appearance();
 
     private SizeModifier mSize = SizeModifier.Medium;
@@ -37,6 +41,8 @@ public class Character implements ICharacter
     private int mBaseAttackBonus = 0;
 
     private ArmorClass mArmorClass = new ArmorClass();
+
+    private int mSpellResistance = 0;
 
 	private EnumMap<Ability.AbilityName, Ability> mAbilities = new EnumMap<Ability.AbilityName, Ability>(Ability.AbilityName.class);
 
@@ -115,6 +121,14 @@ public class Character implements ICharacter
 
     public void setAge(int pValue) { mAge = pValue; }
 
+    public String getRace() { return mRace; }
+
+    public void setRace(String pValue) { mRace = pValue; }
+
+    public String getGender() { return mGender; }
+
+    public void setGender(String pValue) { mGender = pValue; }
+
     public Appearance getAppearance() { return mAppearance; }
 
     public SizeModifier getSize() { return mSize; }
@@ -151,6 +165,10 @@ public class Character implements ICharacter
                 getAbility(Ability.AbilityName.DEX).getCurrentModifier() + mSize.getValue() + 10;
         //TODO other bonuses
     }
+
+    public int getSpellResistance() { return mSpellResistance; }
+
+    public void setSpellResistance(int pValue) { mSpellResistance = pValue; }
 	
 	public Ability getAbility(Ability.AbilityName pName) { return mAbilities.get(pName); }
 

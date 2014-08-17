@@ -12,12 +12,12 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class PagerAdapter_Charsheet  extends FragmentPagerAdapter {
 
-    ICharacter mCharacter;
+    Activity_Charsheet mActivity;
 
-    public PagerAdapter_Charsheet(FragmentManager fm, ICharacter pCharacter) {
+    public PagerAdapter_Charsheet(FragmentManager fm, Activity_Charsheet pActivity) {
         super(fm);
 
-        mCharacter = pCharacter;
+        mActivity = pActivity;
     }
 
     @Override
@@ -25,9 +25,11 @@ public class PagerAdapter_Charsheet  extends FragmentPagerAdapter {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
 
-        if (mCharacter != null)
+        ICharacter lChar = mActivity.getCharacter();
+
+        if (lChar != null)
         {
-            Class<? extends Fragment> pClass = mCharacter.getPageFragmentClass(position);
+            Class<? extends Fragment> pClass = lChar.getPageFragmentClass(position);
 
             try
             {
@@ -59,9 +61,11 @@ public class PagerAdapter_Charsheet  extends FragmentPagerAdapter {
     @Override
     public int getCount() {
 
-        if (mCharacter != null)
+        ICharacter lChar = mActivity.getCharacter();
+
+        if (lChar != null)
         {
-            return mCharacter.getPageCount();
+            return lChar.getPageCount();
         }
 
         return 0;
@@ -70,9 +74,11 @@ public class PagerAdapter_Charsheet  extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
 
-        if (mCharacter != null)
+        ICharacter lChar = mActivity.getCharacter();
+
+        if (lChar != null)
         {
-            Class<? extends Fragment> pClass = mCharacter.getPageFragmentClass(position);
+            Class<? extends Fragment> pClass = lChar.getPageFragmentClass(position);
 
             if (pClass.isAnnotationPresent(CharSheet_PageInfo.class))
             {

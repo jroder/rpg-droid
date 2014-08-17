@@ -9,6 +9,7 @@
 
     <com.thing.rpg_droid.app.View_CharacterSheet_Field
         style="@style/View_CharacterSheet_Field"
+        android:id="@+id/charname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         rpg-droid:value="Hero Name"
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content">
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
-            android:id="@+id/level"
+            android:id="@+id/charlevel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -208,6 +209,7 @@
                     rpg-droid:label="DEX [mod]"/>
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
+                    android:id="@+id/refSave"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -229,6 +231,7 @@
                     rpg-droid:label="CON [mod]"/>
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
+                    android:id="@+id/fortSave"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -264,6 +267,7 @@
                     rpg-droid:label="WIS [mod]"/>
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
+                    android:id="@+id/wilSave"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -298,6 +302,7 @@
                 android:weightSum="2">
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
+                    android:id="@+id/baseAttack"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -312,6 +317,7 @@
                 android:weightSum="2">
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
+                    android:id="@+id/spellResist"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
