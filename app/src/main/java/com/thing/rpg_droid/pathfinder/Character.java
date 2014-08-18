@@ -66,6 +66,7 @@ public class Character implements ICharacter
         mClassName = "No Class";
         RandomizeAbilities();
         GenerateSkillList();
+        GenerateSavingThrows();
 
         mBaseHitPoints = DieRoller.Roll(mHitDie);
 	}
@@ -102,6 +103,14 @@ public class Character implements ICharacter
             Skill lSkill = new Skill(0, 0, lSkillName, Skill.standardList.get(lSkillName), false);
 
             mSkills.add(lSkill);
+        }
+    }
+
+    private void GenerateSavingThrows()
+    {
+        for (SavingThrow.SaveType lThrowType : SavingThrow.SaveType.values())
+        {
+            mSavingThrows.put(lThrowType, new SavingThrow());
         }
     }
 

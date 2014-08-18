@@ -68,6 +68,8 @@ public class View_CharacterSheet_Field extends View
     public void setValue(String pValue)
     {
         mValue = pValue;
+
+        this.invalidate();
     }
 
     private void Init(Context pContext, AttributeSet pAttrs, int pDefStyleAttr)

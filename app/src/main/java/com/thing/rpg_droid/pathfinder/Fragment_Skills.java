@@ -12,10 +12,12 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.thing.rpg_droid.app.Activity_Charsheet;
 import com.thing.rpg_droid.app.CharSheet_PageInfo;
+import com.thing.rpg_droid.app.ICharacter;
 import com.thing.rpg_droid.res.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @CharSheet_PageInfo(title = "Skills")
 public class Fragment_Skills extends Fragment {
@@ -33,15 +35,6 @@ public class Fragment_Skills extends Fragment {
         if (getArguments() != null) {
 
         }
-
-        ArrayList<Skill> lSkills = new ArrayList<Skill>();
-
-        for (int i = 0; i < 20; i++)
-        {
-            lSkills.add(new Skill(0, 0, "Skill " + Integer.toString(i), Ability.AbilityName.STR, false));
-        }
-
-        mCharSkillAdapter = new SkillListAdapter(getActivity(), lSkills);
     }
 
     @Override
@@ -49,7 +42,15 @@ public class Fragment_Skills extends Fragment {
     {
         ListView lListView = (ListView)pInflater.inflate(R.layout.pathfinder_fragment_skills, pContainer, false);
 
-        lListView.setAdapter(mCharSkillAdapter);
+        ICharacter lChar = ((Activity_Charsheet)getActivity()).getCharacter();
+
+        if (lChar instanceof Character)
+        {
+            mCharSkillAdapter = new SkillListAdapter(getActivity(),
+                                                     ((Character) lChar).getSkillList());
+
+            lListView.setAdapter(mCharSkillAdapter);
+        }
 
         return lListView;
     }
@@ -81,9 +82,9 @@ public class Fragment_Skills extends Fragment {
     {
         private Context mContext;
 
-        private ArrayList<Skill> mSkills;
+        private List<Skill> mSkills;
 
-        public SkillListAdapter(Context pContext, ArrayList<Skill> pSkills)
+        public SkillListAdapter(Context pContext, List<Skill> pSkills)
         {
             super();
 

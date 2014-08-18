@@ -51,7 +51,7 @@ public class Activity_Charsheet extends Activity implements ActionBar.TabListene
         }
 
 
-        mSectionsPagerAdapter = new PagerAdapter_Charsheet(getFragmentManager(), mCharacter);
+        mSectionsPagerAdapter = new PagerAdapter_Charsheet(getFragmentManager(), this);
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);

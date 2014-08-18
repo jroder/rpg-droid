@@ -43,5 +43,8 @@ public class Ability
             return (int)Math.max(Math.ceil((getModifier() - (pSpellLevel - 1)) / 4.0), 0);
     }
 
-
+    public String getDisplayString()
+    {
+        return Integer.toString(getScore()) + " [" + Integer.toString(getModifier()) + "]";
+    }
 }

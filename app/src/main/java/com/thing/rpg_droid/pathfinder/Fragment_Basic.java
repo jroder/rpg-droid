@@ -37,11 +37,15 @@ public class Fragment_Basic extends Fragment
         {
             if (lValue instanceof Integer)
             {
-                ((View_CharacterSheet_Field) lField).setValue(Integer.toBinaryString((Integer)lValue));
+                ((View_CharacterSheet_Field) lField).setValue(Integer.toString((Integer)lValue));
             }
             else if (lValue instanceof String)
             {
                 ((View_CharacterSheet_Field) lField).setValue((String)lValue);
+            }
+            else
+            {
+                ((View_CharacterSheet_Field) lField).setValue(null);
             }
         }
     }
@@ -66,22 +70,22 @@ public class Fragment_Basic extends Fragment
             populateField(lRoot.findViewById(R.id.weight), ((Character) lChar).getAppearance().getWeight());
             populateField(lRoot.findViewById(R.id.hair), ((Character) lChar).getAppearance().getHairColor());
             populateField(lRoot.findViewById(R.id.eyes), ((Character) lChar).getAppearance().getEyeColor());
-//            populateField(lRoot.findViewById(R.id.spdBase), ((Character) lChar).);
-//            populateField(lRoot.findViewById(R.id.spdSwim), ((Character) lChar).);
-//            populateField(lRoot.findViewById(R.id.spdClimb), ((Character) lChar).);
-//            populateField(lRoot.findViewById(R.id.spdBurrow), ((Character) lChar).);
-//            populateField(lRoot.findViewById(R.id.spdFly), ((Character) lChar).);
-//            populateField(lRoot.findViewById(R.id.spdFlyManeuver), ((Character) lChar).);
+            populateField(lRoot.findViewById(R.id.spdBase), null);
+            populateField(lRoot.findViewById(R.id.spdSwim), null);
+            populateField(lRoot.findViewById(R.id.spdClimb), null);
+            populateField(lRoot.findViewById(R.id.spdBurrow), null);
+            populateField(lRoot.findViewById(R.id.spdFly), null);
+            populateField(lRoot.findViewById(R.id.spdFlyManeuver), null);
 
-            populateField(lRoot.findViewById(R.id.strScore), ((Character) lChar).getAbility(Ability.AbilityName.STR));
-            populateField(lRoot.findViewById(R.id.dexScore), ((Character) lChar).getAbility(Ability.AbilityName.DEX));
+            populateField(lRoot.findViewById(R.id.strScore), ((Character) lChar).getAbility(Ability.AbilityName.STR).getDisplayString());
+            populateField(lRoot.findViewById(R.id.dexScore), ((Character) lChar).getAbility(Ability.AbilityName.DEX).getDisplayString());
             populateField(lRoot.findViewById(R.id.refSave), ((Character) lChar).getSavingThrow(SavingThrow.SaveType.REFLEX).getBaseSave());
-            populateField(lRoot.findViewById(R.id.conScore), ((Character) lChar).getAbility(Ability.AbilityName.CON));
+            populateField(lRoot.findViewById(R.id.conScore), ((Character) lChar).getAbility(Ability.AbilityName.CON).getDisplayString());
             populateField(lRoot.findViewById(R.id.fortSave), ((Character) lChar).getSavingThrow(SavingThrow.SaveType.FORTITUDE).getBaseSave());
-            populateField(lRoot.findViewById(R.id.intScore), ((Character) lChar).getAbility(Ability.AbilityName.INT));
-            populateField(lRoot.findViewById(R.id.wisScore), ((Character) lChar).getAbility(Ability.AbilityName.WIS));
+            populateField(lRoot.findViewById(R.id.intScore), ((Character) lChar).getAbility(Ability.AbilityName.INT).getDisplayString());
+            populateField(lRoot.findViewById(R.id.wisScore), ((Character) lChar).getAbility(Ability.AbilityName.WIS).getDisplayString());
             populateField(lRoot.findViewById(R.id.wilSave), ((Character) lChar).getSavingThrow(SavingThrow.SaveType.WILLPOWER).getBaseSave());
-            populateField(lRoot.findViewById(R.id.chaScore), ((Character) lChar).getAbility(Ability.AbilityName.CHA));
+            populateField(lRoot.findViewById(R.id.chaScore), ((Character) lChar).getAbility(Ability.AbilityName.CHA).getDisplayString());
 
             populateField(lRoot.findViewById(R.id.baseAttack), ((Character) lChar).getBaseAttackBonus());
             populateField(lRoot.findViewById(R.id.spellResist), ((Character) lChar).getSpellResistance());
