@@ -6,8 +6,7 @@
               android:layout_height="wrap_content"
               tools:context="com.thing.rpg_droid.pathfinder.Fragment_Status"
               android:weightSum="1"
-              android:baselineAligned="false"
-              android:id="@+id/">
+              android:baselineAligned="false">
 
     <LinearLayout
         android:orientation="horizontal"

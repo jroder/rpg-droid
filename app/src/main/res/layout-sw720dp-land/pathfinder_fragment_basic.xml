@@ -5,8 +5,7 @@
               android:layout_height="match_parent"
               tools:context="com.thing.rpg_droid.pathfinder.Fragment_Status"
               android:weightSum="1"
-              android:baselineAligned="false"
-              android:id="@+id/">
+              android:baselineAligned="false">
 
     <com.thing.rpg_droid.app.View_CharacterSheet_Field
         style="@style/View_CharacterSheet_Field"
