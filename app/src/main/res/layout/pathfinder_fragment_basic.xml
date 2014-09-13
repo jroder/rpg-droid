@@ -218,6 +218,7 @@
                     rpg-droid:label="STR [mod]"/>
 
                 <Space
+                    style="@style/View_CharacterSheet_Space"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"/>
@@ -232,6 +233,7 @@
                     rpg-droid:label="INT [mod]"/>
 
                 <Space
+                    style="@style/View_CharacterSheet_Space"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"/>
@@ -295,6 +297,7 @@
                     rpg-droid:label="Fort:"/>
 
                 <Space
+                    style="@style/View_CharacterSheet_Space"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"/>
@@ -329,6 +332,7 @@
                     rpg-droid:label="Base Attack:"/>
 
                 <Space
+                    style="@style/View_CharacterSheet_Space"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"/>
