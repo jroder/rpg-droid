@@ -10,12 +10,17 @@ import android.view.ViewGroup;
 import com.thing.rpg_droid.app.Activity_Charsheet;
 import com.thing.rpg_droid.app.CharSheet_PageInfo;
 import com.thing.rpg_droid.app.ICharacter;
+import com.thing.rpg_droid.app.ViewBinder;
 import com.thing.rpg_droid.app.View_CharacterSheet_Field;
 import com.thing.rpg_droid.res.R;
 
 @CharSheet_PageInfo(title = "Details")
 public class Fragment_Basic extends Fragment
 {
+    private ViewBinder mViewBinder = new ViewBinder();
+
+    private Character mCharacter = null;
+
     public Fragment_Basic()
     {
         // Required empty public constructor
@@ -31,25 +36,6 @@ public class Fragment_Basic extends Fragment
         }
     }
 
-    private void populateField(View lField, Object lValue)
-    {
-        if (lField instanceof View_CharacterSheet_Field)
-        {
-            if (lValue instanceof Integer)
-            {
-                ((View_CharacterSheet_Field) lField).setValue(Integer.toString((Integer)lValue));
-            }
-            else if (lValue instanceof String)
-            {
-                ((View_CharacterSheet_Field) lField).setValue((String)lValue);
-            }
-            else
-            {
-                ((View_CharacterSheet_Field) lField).setValue(null);
-            }
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -60,35 +46,9 @@ public class Fragment_Basic extends Fragment
 
         if (lChar instanceof Character)
         {
-            populateField(lRoot.findViewById(R.id.charname), ((Character) lChar).getName());
-            populateField(lRoot.findViewById(R.id.charlevel), ((Character) lChar).getLevel());
-            populateField(lRoot.findViewById(R.id.charclass), ((Character) lChar).getClassName());
-            populateField(lRoot.findViewById(R.id.race), ((Character) lChar).getRace());
-            populateField(lRoot.findViewById(R.id.age), ((Character) lChar).getAge());
-            populateField(lRoot.findViewById(R.id.gender), ((Character) lChar).getGender());
-            populateField(lRoot.findViewById(R.id.height), ((Character) lChar).getAppearance().getHeight());
-            populateField(lRoot.findViewById(R.id.weight), ((Character) lChar).getAppearance().getWeight());
-            populateField(lRoot.findViewById(R.id.hair), ((Character) lChar).getAppearance().getHairColor());
-            populateField(lRoot.findViewById(R.id.eyes), ((Character) lChar).getAppearance().getEyeColor());
-            populateField(lRoot.findViewById(R.id.spdBase), null);
-            populateField(lRoot.findViewById(R.id.spdSwim), null);
-            populateField(lRoot.findViewById(R.id.spdClimb), null);
-            populateField(lRoot.findViewById(R.id.spdBurrow), null);
-            populateField(lRoot.findViewById(R.id.spdFly), null);
-            populateField(lRoot.findViewById(R.id.spdFlyManeuver), null);
+            mCharacter = (Character)lChar;
 
-            populateField(lRoot.findViewById(R.id.strScore), ((Character) lChar).getAbility(Ability.AbilityName.STR).getDisplayString());
-            populateField(lRoot.findViewById(R.id.dexScore), ((Character) lChar).getAbility(Ability.AbilityName.DEX).getDisplayString());
-            populateField(lRoot.findViewById(R.id.refSave), ((Character) lChar).getSavingThrow(SavingThrow.SaveType.REFLEX).getBaseSave());
-            populateField(lRoot.findViewById(R.id.conScore), ((Character) lChar).getAbility(Ability.AbilityName.CON).getDisplayString());
-            populateField(lRoot.findViewById(R.id.fortSave), ((Character) lChar).getSavingThrow(SavingThrow.SaveType.FORTITUDE).getBaseSave());
-            populateField(lRoot.findViewById(R.id.intScore), ((Character) lChar).getAbility(Ability.AbilityName.INT).getDisplayString());
-            populateField(lRoot.findViewById(R.id.wisScore), ((Character) lChar).getAbility(Ability.AbilityName.WIS).getDisplayString());
-            populateField(lRoot.findViewById(R.id.wilSave), ((Character) lChar).getSavingThrow(SavingThrow.SaveType.WILLPOWER).getBaseSave());
-            populateField(lRoot.findViewById(R.id.chaScore), ((Character) lChar).getAbility(Ability.AbilityName.CHA).getDisplayString());
-
-            populateField(lRoot.findViewById(R.id.baseAttack), ((Character) lChar).getBaseAttackBonus());
-            populateField(lRoot.findViewById(R.id.spellResist), ((Character) lChar).getSpellResistance());
+            bindFields(lRoot);
         }
 
         return lRoot;
@@ -105,4 +65,197 @@ public class Fragment_Basic extends Fragment
         super.onDetach();
 
     }
+
+    private void bindFields(View lRootView)
+    {
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.charname), new ViewBinder.StringBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getName();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.charlevel), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return Integer.toString(mCharacter.getLevel());
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.charclass), new ViewBinder.StringBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getClassName();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.race), new ViewBinder.StringBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getRace();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.age), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return Integer.toString(mCharacter.getAge());
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.gender), new ViewBinder.StringBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getGender();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.height), new ViewBinder.StringBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getAppearance().getHeight();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.weight), new ViewBinder.StringBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getAppearance().getWeight();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.hair), new ViewBinder.StringBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getAppearance().getHairColor();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.eyes), new ViewBinder.StringBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getAppearance().getEyeColor();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spdBase), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return null;
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spdSwim), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return null;
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spdClimb), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return null;
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spdBurrow), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return null;
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spdFly), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return null;
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spdFlyManeuver), new ViewBinder.StringBinder() {
+            @Override
+            public String getValue() {
+                return null;
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.strScore), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getAbility(Ability.AbilityName.STR).getDisplayString();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.dexScore), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getAbility(Ability.AbilityName.DEX).getDisplayString();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.refSave), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return Integer.toString(mCharacter.getSavingThrow(SavingThrow.SaveType.REFLEX).getBaseSave());
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.conScore), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getAbility(Ability.AbilityName.CON).getDisplayString();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.fortSave), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return Integer.toString(mCharacter.getSavingThrow(SavingThrow.SaveType.FORTITUDE).getBaseSave());
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.intScore), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getAbility(Ability.AbilityName.INT).getDisplayString();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.wisScore), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getAbility(Ability.AbilityName.WIS).getDisplayString();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.wilSave), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return Integer.toString(mCharacter.getSavingThrow(SavingThrow.SaveType.WILLPOWER).getBaseSave());
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.chaScore), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return mCharacter.getAbility(Ability.AbilityName.CHA).getDisplayString();
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.baseAttack), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return Integer.toString(mCharacter.getBaseAttackBonus());
+            }
+        });
+
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spellResist), new ViewBinder.NumericBinder() {
+            @Override
+            public String getValue() {
+                return Integer.toString(mCharacter.getSpellResistance());
+            }
+        });
+    }
+
 }
