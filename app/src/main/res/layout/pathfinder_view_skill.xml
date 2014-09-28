@@ -3,61 +3,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp">
-
-
-    <CheckBox
-        android:layout_width="30dp"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/skill_class"/>
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/skill_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="15dp"
-        android:textColor="#ff4592ff"
-        android:textStyle="bold"
-        android:paddingStart="15dp"
+        android:gravity="left"
         android:text="Skill Name Here"/>
 
     <TextView
         android:id="@+id/skill_ability"
-        android:layout_width="50dp"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:textColor="#ff4592ff"
-        android:paddingStart="15dp"
+        android:gravity="center"
         android:text="AGI"/>
 
     <TextView
         android:id="@+id/skill_ranks"
-        android:layout_width="30dp"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:textColor="#ff4592ff"
-        android:paddingStart="15dp"
+        android:gravity="center"
         android:text="2"/>
 
     <TextView
         android:id="@+id/skill_misc"
-        android:layout_width="30dp"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:textColor="#ff4592ff"
-        android:paddingStart="15dp"
+        android:gravity="center"
         android:text="0"/>
 
     <TextView
         android:id="@+id/skill_total"
-        android:layout_width="30dp"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:textColor="#ff4592ff"
-        android:paddingStart="15dp"
+        android:gravity="center"
         android:text="8"/>
 
 </LinearLayout>

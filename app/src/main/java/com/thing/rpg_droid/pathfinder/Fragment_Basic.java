@@ -74,296 +74,296 @@ public class Fragment_Basic extends Fragment
     {
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.charname), new ViewBinder.EditableStringBinder() {
             @Override
-            public String getValue() { return mCharacter.getName(); }
+            public String getValue(Object pBoundObj) { return mCharacter.getName(); }
 
             @Override
-            public void setValue(String pValue) { mCharacter.setName(pValue); }
+            public void setValue(Object pBoundObj, String pValue) { mCharacter.setName(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.charlevel), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getLevel(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getLevel(); }
 
             @Override
-            public int getMaximum() { return 20; }
+            public int getMaximum(Object pBoundObj) { return 20; }
 
             @Override
-            public int getMinimum() { return 1; }
+            public int getMinimum(Object pBoundObj) { return 1; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.setLevel(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.setLevel(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.charclass), new ViewBinder.EditableStringBinder() {
             @Override
-            public String getValue() { return mCharacter.getClassName(); }
+            public String getValue(Object pBoundObj) { return mCharacter.getClassName(); }
 
             @Override
-            public void setValue(String pValue) { mCharacter.setClassName(pValue); }
+            public void setValue(Object pBoundObj, String pValue) { mCharacter.setClassName(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.race), new ViewBinder.EditableStringBinder() {
             @Override
-            public String getValue() { return mCharacter.getRace(); }
+            public String getValue(Object pBoundObj) { return mCharacter.getRace(); }
 
             @Override
-            public void setValue(String pValue) { mCharacter.setRace(pValue); }
+            public void setValue(Object pBoundObj, String pValue) { mCharacter.setRace(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.age), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getAge(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getAge(); }
 
             @Override
-            public int getMaximum() { return 1000; }
+            public int getMaximum(Object pBoundObj) { return 1000; }
 
             @Override
-            public int getMinimum() { return 0; }
+            public int getMinimum(Object pBoundObj) { return 0; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.setAge(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.setAge(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.gender), new ViewBinder.EditableStringBinder() {
             @Override
-            public String getValue() { return mCharacter.getGender(); }
+            public String getValue(Object pBoundObj) { return mCharacter.getGender(); }
 
             @Override
-            public void setValue(String pValue) { mCharacter.setGender(pValue); }
+            public void setValue(Object pBoundObj, String pValue) { mCharacter.setGender(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.height), new ViewBinder.EditableStringBinder() {
             @Override
-            public String getValue() { return mCharacter.getAppearance().getHeight(); }
+            public String getValue(Object pBoundObj) { return mCharacter.getAppearance().getHeight(); }
 
             @Override
-            public void setValue(String pValue) { mCharacter.getAppearance().setHeight(pValue); }
+            public void setValue(Object pBoundObj, String pValue) { mCharacter.getAppearance().setHeight(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.weight), new ViewBinder.EditableStringBinder() {
             @Override
-            public String getValue() { return mCharacter.getAppearance().getWeight(); }
+            public String getValue(Object pBoundObj) { return mCharacter.getAppearance().getWeight(); }
 
             @Override
-            public void setValue(String pValue) { mCharacter.getAppearance().setWeight(pValue); }
+            public void setValue(Object pBoundObj, String pValue) { mCharacter.getAppearance().setWeight(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.hair), new ViewBinder.EditableStringBinder() {
             @Override
-            public String getValue() { return mCharacter.getAppearance().getHairColor(); }
+            public String getValue(Object pBoundObj) { return mCharacter.getAppearance().getHairColor(); }
 
             @Override
-            public void setValue(String pValue) { mCharacter.getAppearance().setHairColor(pValue); }
+            public void setValue(Object pBoundObj, String pValue) { mCharacter.getAppearance().setHairColor(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.eyes), new ViewBinder.EditableStringBinder() {
             @Override
-            public String getValue() { return mCharacter.getAppearance().getEyeColor(); }
+            public String getValue(Object pBoundObj) { return mCharacter.getAppearance().getEyeColor(); }
 
             @Override
-            public void setValue(String pValue) { mCharacter.getAppearance().setEyeColor(pValue); }
+            public void setValue(Object pBoundObj, String pValue) { mCharacter.getAppearance().setEyeColor(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spdBase), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return 0; }
+            public int getValue(Object pBoundObj) { return 0; }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spdSwim), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return 0; }
+            public int getValue(Object pBoundObj) { return 0; }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spdClimb), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return 0; }
+            public int getValue(Object pBoundObj) { return 0; }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spdBurrow), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return 0; }
+            public int getValue(Object pBoundObj) { return 0; }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spdFly), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return 0; }
+            public int getValue(Object pBoundObj) { return 0; }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spdFlyManeuver), new ViewBinder.EditableStringBinder() {
             @Override
-            public String getValue() { return null; }
+            public String getValue(Object pBoundObj) { return null; }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.strScore), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getAbility(Ability.AbilityName.STR).getScore(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getAbility(Ability.AbilityName.STR).getScore(); }
 
             @Override
-            public String getDisplayValue() { return mCharacter.getAbility(Ability.AbilityName.STR).getDisplayString(); }
+            public String getDisplayValue(Object pBoundObj) { return mCharacter.getAbility(Ability.AbilityName.STR).getDisplayString(); }
 
             @Override
-            public int getMaximum() { return 30; }
+            public int getMaximum(Object pBoundObj) { return 30; }
 
             @Override
-            public int getMinimum() { return 1; }
+            public int getMinimum(Object pBoundObj) { return 1; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.getAbility(Ability.AbilityName.STR).setScore(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.getAbility(Ability.AbilityName.STR).setScore(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.dexScore), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getAbility(Ability.AbilityName.DEX).getScore(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getAbility(Ability.AbilityName.DEX).getScore(); }
 
             @Override
-            public String getDisplayValue() { return mCharacter.getAbility(Ability.AbilityName.DEX).getDisplayString(); }
+            public String getDisplayValue(Object pBoundObj) { return mCharacter.getAbility(Ability.AbilityName.DEX).getDisplayString(); }
 
             @Override
-            public int getMaximum() { return 30; }
+            public int getMaximum(Object pBoundObj) { return 30; }
 
             @Override
-            public int getMinimum() { return 1; }
+            public int getMinimum(Object pBoundObj) { return 1; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.getAbility(Ability.AbilityName.DEX).setScore(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.getAbility(Ability.AbilityName.DEX).setScore(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.refSave), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getSavingThrow(SavingThrow.SaveType.REFLEX).getBaseSave(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getSavingThrow(SavingThrow.SaveType.REFLEX).getBaseSave(); }
 
             @Override
-            public int getMaximum() { return 20; }
+            public int getMaximum(Object pBoundObj) { return 20; }
 
             @Override
-            public int getMinimum() { return 0; }
+            public int getMinimum(Object pBoundObj) { return 0; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.getSavingThrow(SavingThrow.SaveType.REFLEX).setBaseSave(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.getSavingThrow(SavingThrow.SaveType.REFLEX).setBaseSave(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.conScore), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getAbility(Ability.AbilityName.CON).getScore(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getAbility(Ability.AbilityName.CON).getScore(); }
 
             @Override
-            public String getDisplayValue() { return mCharacter.getAbility(Ability.AbilityName.CON).getDisplayString(); }
+            public String getDisplayValue(Object pBoundObj) { return mCharacter.getAbility(Ability.AbilityName.CON).getDisplayString(); }
 
             @Override
-            public int getMaximum() { return 30; }
+            public int getMaximum(Object pBoundObj) { return 30; }
 
             @Override
-            public int getMinimum() { return 1; }
+            public int getMinimum(Object pBoundObj) { return 1; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.getAbility(Ability.AbilityName.CON).setScore(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.getAbility(Ability.AbilityName.CON).setScore(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.fortSave), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getSavingThrow(SavingThrow.SaveType.FORTITUDE).getBaseSave(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getSavingThrow(SavingThrow.SaveType.FORTITUDE).getBaseSave(); }
 
             @Override
-            public int getMaximum() { return 20; }
+            public int getMaximum(Object pBoundObj) { return 20; }
 
             @Override
-            public int getMinimum() { return 0; }
+            public int getMinimum(Object pBoundObj) { return 0; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.getSavingThrow(SavingThrow.SaveType.FORTITUDE).setBaseSave(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.getSavingThrow(SavingThrow.SaveType.FORTITUDE).setBaseSave(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.intScore), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getAbility(Ability.AbilityName.INT).getScore(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getAbility(Ability.AbilityName.INT).getScore(); }
 
             @Override
-            public String getDisplayValue() { return mCharacter.getAbility(Ability.AbilityName.INT).getDisplayString(); }
+            public String getDisplayValue(Object pBoundObj) { return mCharacter.getAbility(Ability.AbilityName.INT).getDisplayString(); }
 
             @Override
-            public int getMaximum() { return 30; }
+            public int getMaximum(Object pBoundObj) { return 30; }
 
             @Override
-            public int getMinimum() { return 1; }
+            public int getMinimum(Object pBoundObj) { return 1; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.getAbility(Ability.AbilityName.INT).setScore(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.getAbility(Ability.AbilityName.INT).setScore(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.wisScore), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getAbility(Ability.AbilityName.WIS).getScore(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getAbility(Ability.AbilityName.WIS).getScore(); }
 
             @Override
-            public String getDisplayValue() { return mCharacter.getAbility(Ability.AbilityName.WIS).getDisplayString(); }
+            public String getDisplayValue(Object pBoundObj) { return mCharacter.getAbility(Ability.AbilityName.WIS).getDisplayString(); }
 
             @Override
-            public int getMaximum() { return 30; }
+            public int getMaximum(Object pBoundObj) { return 30; }
 
             @Override
-            public int getMinimum() { return 1; }
+            public int getMinimum(Object pBoundObj) { return 1; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.getAbility(Ability.AbilityName.WIS).setScore(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.getAbility(Ability.AbilityName.WIS).setScore(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.wilSave), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getSavingThrow(SavingThrow.SaveType.WILLPOWER).getBaseSave(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getSavingThrow(SavingThrow.SaveType.WILLPOWER).getBaseSave(); }
 
             @Override
-            public int getMaximum() { return 20; }
+            public int getMaximum(Object pBoundObj) { return 20; }
 
             @Override
-            public int getMinimum() { return 0; }
+            public int getMinimum(Object pBoundObj) { return 0; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.getSavingThrow(SavingThrow.SaveType.WILLPOWER).setBaseSave(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.getSavingThrow(SavingThrow.SaveType.WILLPOWER).setBaseSave(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.chaScore), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getAbility(Ability.AbilityName.CHA).getScore(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getAbility(Ability.AbilityName.CHA).getScore(); }
 
             @Override
-            public String getDisplayValue() { return mCharacter.getAbility(Ability.AbilityName.CHA).getDisplayString(); }
+            public String getDisplayValue(Object pBoundObj) { return mCharacter.getAbility(Ability.AbilityName.CHA).getDisplayString(); }
 
             @Override
-            public int getMaximum() { return 30; }
+            public int getMaximum(Object pBoundObj) { return 30; }
 
             @Override
-            public int getMinimum() { return 1; }
+            public int getMinimum(Object pBoundObj) { return 1; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.getAbility(Ability.AbilityName.CHA).setScore(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.getAbility(Ability.AbilityName.CHA).setScore(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.baseAttack), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getBaseAttackBonus(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getBaseAttackBonus(); }
 
             @Override
-            public int getMaximum() { return 20; }
+            public int getMaximum(Object pBoundObj) { return 20; }
 
             @Override
-            public int getMinimum() { return 0; }
+            public int getMinimum(Object pBoundObj) { return 0; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.setBaseAttackBonus(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.setBaseAttackBonus(pValue); }
         });
 
         mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.spellResist), new ViewBinder.EditableNumericBinder() {
             @Override
-            public int getValue() { return mCharacter.getSpellResistance(); }
+            public int getValue(Object pBoundObj) { return mCharacter.getSpellResistance(); }
 
             @Override
-            public int getMaximum() { return 20; }
+            public int getMaximum(Object pBoundObj) { return 20; }
 
             @Override
-            public int getMinimum() { return 0; }
+            public int getMinimum(Object pBoundObj) { return 0; }
 
             @Override
-            public void setValue(int pValue) { mCharacter.setSpellResistance(pValue); }
+            public void setValue(Object pBoundObj, int pValue) { mCharacter.setSpellResistance(pValue); }
         });
     }
 

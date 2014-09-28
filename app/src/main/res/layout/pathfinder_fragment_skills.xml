@@ -1,12 +1,75 @@
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:id="@+id/skill_list"
-          android:descendantFocusability="blocksDescendants"
-          tools:context="com.thing.rpg_droid.app.Activity_CharacterList$PlaceholderFragment"
-          android:clickable="true"
-          android:focusable="true"
-          android:focusableInTouchMode="true"
-          android:choiceMode="none">
-</ListView>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.thing.rpg_droid.app.Activity_CharacterList$PlaceholderFragment"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="Description"/>
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Abil"/>
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Rank"/>
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Misc"/>
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Tot"/>
+
+    </LinearLayout>
+
+    <View style="@style/Divider"/>
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="fill_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:id="@+id/skill_list"
+              android:descendantFocusability="blocksDescendants"
+              tools:context="com.thing.rpg_droid.app.Activity_CharacterList$PlaceholderFragment"
+              android:clickable="true"
+              android:focusable="true"
+              android:focusableInTouchMode="true"
+              android:choiceMode="none">
+
+    </ListView>
+
+    <View style="@style/Divider"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        android:textColor="#ff555555"
+        android:textStyle="italic"
+        android:text="* bold items are class skills +3 bonus with at least 1 rank."/>
+
+</LinearLayout>
