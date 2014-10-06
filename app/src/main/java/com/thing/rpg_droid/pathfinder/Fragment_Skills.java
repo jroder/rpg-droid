@@ -42,7 +42,9 @@ public class Fragment_Skills extends Fragment {
     @Override
     public View onCreateView(LayoutInflater pInflater, ViewGroup pContainer, Bundle pSavedInstanceState)
     {
-        ListView lListView = (ListView)pInflater.inflate(R.layout.pathfinder_fragment_skills, pContainer, false);
+        View lRootView = pInflater.inflate(R.layout.pathfinder_fragment_skills, pContainer, false);
+
+        ListView lListView = (ListView)lRootView.findViewById(R.id.skill_list);
 
         ICharacter lChar = ((Activity_Charsheet)getActivity()).getCharacter();
 
@@ -54,7 +56,7 @@ public class Fragment_Skills extends Fragment {
             lListView.setAdapter(mCharSkillAdapter);
         }
 
-        return lListView;
+        return lRootView;
     }
 
     @Override
@@ -181,6 +183,8 @@ public class Fragment_Skills extends Fragment {
                     @Override
                     public void setValue(Object pBoundObj, String pValue) { ((Skill)pBoundObj).setName(pValue); }
                 });
+
+                //TODO selecting ability
 
                 lBinder.addBinding((TextView)lView.findViewById(R.id.skill_ranks), new ViewBinder.EditableNumericBinder() {
                     @Override

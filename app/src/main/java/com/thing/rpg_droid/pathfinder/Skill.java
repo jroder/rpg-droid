@@ -20,12 +20,16 @@ public class Skill
 
     private boolean mClass = false;
 
-    public Skill()
+    private Character mCharacter = null;
+
+    public Skill(Character pCharacter)
     {
+        mCharacter = pCharacter;
     }
 
-    public Skill(int pRanks, int pMisc, String pName, Ability.AbilityName pAbility, boolean pClass)
+    public Skill(Character pCharacter, int pRanks, int pMisc, String pName, Ability.AbilityName pAbility, boolean pClass)
     {
+        this(pCharacter);
         mName = pName;
         mRanks = pRanks;
         mMisc = pMisc;
@@ -85,7 +89,14 @@ public class Skill
 
     public int getTotal()
     {
-        return 0; //todo nyi
+        int lResult = 0;
+
+        lResult += (mRanks + mMisc + mCharacter.getAbility(mAbility).getCurrentModifier());
+
+        if (mClass && (mRanks > 0))
+            lResult += 3;
+
+        return lResult;
     }
 
 

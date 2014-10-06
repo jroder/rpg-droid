@@ -21,14 +21,6 @@
             android:label="@string/app_name"
             android:parentActivityName="com.thing.rpg_droid.app.Activity_CharacterList" >
         </activity>
-        <activity
-            android:name="com.thing.rpg_droid.app.Activity_Settings"
-            android:label="@string/title_activity_activity__settings"
-            android:parentActivityName="com.thing.rpg_droid.app.Activity_CharacterList" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="Activity_CharacterList" />
-        </activity>
     </application>
 
 </manifest>

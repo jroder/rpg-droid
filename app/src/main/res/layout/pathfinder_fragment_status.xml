@@ -22,6 +22,7 @@
 
             <com.thing.rpg_droid.app.View_CharacterSheet_Field
                 style="@style/View_CharacterSheet_Field"
+                android:id="@+id/charname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 rpg-droid:value="Hero Name"
@@ -34,6 +35,7 @@
 
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
+                    android:id="@+id/stdac"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -41,6 +43,7 @@
                     rpg-droid:label="AC:"/>
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
+                    android:id="@+id/touchac"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -48,6 +51,7 @@
                     rpg-droid:label="Touch:"/>
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
+                    android:id="@+id/ffac"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -55,6 +59,7 @@
                     rpg-droid:label="Flat Footed:"/>
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
+                    android:id="@+id/initiative"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -62,6 +67,7 @@
                     rpg-droid:label="Init:"/>
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
+                    android:id="@+id/spdBase"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -74,6 +80,7 @@
 
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
+            android:id="@+id/currenthp"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"

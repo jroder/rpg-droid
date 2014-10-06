@@ -4,6 +4,7 @@
       android:orientation="vertical"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+
       tools:context="com.thing.rpg_droid.pathfinder.Fragment_Status"
       android:weightSum="1"
       android:baselineAligned="false">
@@ -15,7 +16,8 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:contentDescription="@string/desc_CharPicture"/>
 
         <LinearLayout
             android:orientation="vertical"
@@ -27,8 +29,7 @@
                 android:id="@+id/charname"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                rpg-droid:value="Hero Name"
-                rpg-droid:label="Name:"/>
+                rpg-droid:label="@string/label_Name"/>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -40,16 +41,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    rpg-droid:value="4"
-                    rpg-droid:label="Level:"/>
+                    rpg-droid:label="@string/label_Level"/>
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
                     android:id="@+id/charclass"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    rpg-droid:value="Magus"
-                    rpg-droid:label="Class:"/>
+                    rpg-droid:label="@string/label_Class"/>
             </LinearLayout>
 
             <LinearLayout
@@ -62,24 +61,21 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    rpg-droid:value="Elf"
-                    rpg-droid:label="Race:"/>
+                    rpg-droid:label="@string/label_Race"/>
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
                     android:id="@+id/age"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    rpg-droid:value="47"
-                    rpg-droid:label="Age:"/>
+                    rpg-droid:label="@string/label_Age"/>
                 <com.thing.rpg_droid.app.View_CharacterSheet_Field
                     style="@style/View_CharacterSheet_Field"
                     android:id="@+id/gender"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    rpg-droid:value="M"
-                    rpg-droid:label="Gender:"/>
+                    rpg-droid:label="@string/label_Gender"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -94,32 +90,28 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            rpg-droid:value="6'2"
-            rpg-droid:label="Height:"/>
+            rpg-droid:label="@string/label_Height"/>
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
             android:id="@+id/weight"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            rpg-droid:value="170"
-            rpg-droid:label="Weight:"/>
+            rpg-droid:label="@string/label_Weight"/>
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
             android:id="@+id/hair"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
-            rpg-droid:value="Blonde"
-            rpg-droid:label="Hair:"/>
+            rpg-droid:label="@string/label_Hair"/>
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
             android:id="@+id/eyes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
-            rpg-droid:value="Purple"
-            rpg-droid:label="Eyes:"/>
+            rpg-droid:label="@string/label_Eyes"/>
     </LinearLayout>
 
 
@@ -133,8 +125,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            rpg-droid:value="30"
-            rpg-droid:label="Base Spd:"/>
+            rpg-droid:label="@string/label_BaseSpeed"/>
 
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
@@ -142,8 +133,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            rpg-droid:value="3"
-            rpg-droid:label="Swim:"/>
+            rpg-droid:label="@string/label_SwimSpeed"/>
 
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
@@ -151,8 +141,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            rpg-droid:value="3"
-            rpg-droid:label="Climb:"/>
+            rpg-droid:label="@string/label_ClimbSpeed"/>
 
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
@@ -160,8 +149,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            rpg-droid:value="17"
-            rpg-droid:label="Burrow:"/>
+            rpg-droid:label="@string/label_BurrowSpeed"/>
 
     </LinearLayout>
 
@@ -175,8 +163,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            rpg-droid:value="3"
-            rpg-droid:label="Fly:"/>
+            rpg-droid:label="@string/label_FlySpeed"/>
 
         <com.thing.rpg_droid.app.View_CharacterSheet_Field
             style="@style/View_CharacterSheet_Field"
@@ -184,169 +171,168 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            rpg-droid:value="3"
-            rpg-droid:label="Maneuver:"/>
+            rpg-droid:label="@string/label_Maneuver"/>
     </LinearLayout>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_margin="4dp"
-        android:background="#FF000000"
-        />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/View_CharacterSheet_Heading"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <com.thing.rpg_droid.app.View_CharacterSheet_Field
-                    style="@style/View_CharacterSheet_Field"
-                    android:id="@+id/strScore"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    rpg-droid:value="17 [3]"
-                    rpg-droid:label="STR [mod]"/>
+            android:text="Abilities"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_margin="4dp"
+            android:background="#FF000000"/>
+    </LinearLayout>
 
-                <Space
-                    style="@style/View_CharacterSheet_Space"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                style="@style/View_CharacterSheet_Field"
+                android:id="@+id/strScore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                rpg-droid:label="@string/label_AbilitySTR"/>
 
-                <com.thing.rpg_droid.app.View_CharacterSheet_Field
-                    style="@style/View_CharacterSheet_Field"
-                    android:id="@+id/intScore"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    rpg-droid:value="17 [3]"
-                    rpg-droid:label="INT [mod]"/>
+            <Space
+                style="@style/View_CharacterSheet_Space"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
-                <Space
-                    style="@style/View_CharacterSheet_Space"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"/>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <com.thing.rpg_droid.app.View_CharacterSheet_Field
-                    style="@style/View_CharacterSheet_Field"
-                    android:id="@+id/dexScore"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    rpg-droid:value="17 [3]"
-                    rpg-droid:label="DEX [mod]"/>
-                <com.thing.rpg_droid.app.View_CharacterSheet_Field
-                    style="@style/View_CharacterSheet_Field"
-                    android:id="@+id/refSave"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    rpg-droid:value="3"
-                    rpg-droid:label="Reflex:"/>
-                <com.thing.rpg_droid.app.View_CharacterSheet_Field
-                    style="@style/View_CharacterSheet_Field"
-                    android:id="@+id/wisScore"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    rpg-droid:value="17"
-                    rpg-droid:label="WIS [mod]"/>
-                <com.thing.rpg_droid.app.View_CharacterSheet_Field
-                    style="@style/View_CharacterSheet_Field"
-                    android:id="@+id/wilSave"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    rpg-droid:value="17"
-                    rpg-droid:label="Will:"/>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <com.thing.rpg_droid.app.View_CharacterSheet_Field
-                    style="@style/View_CharacterSheet_Field"
-                    android:id="@+id/conScore"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    rpg-droid:value="17 [3]"
-                    rpg-droid:label="CON [mod]"/>
-                <com.thing.rpg_droid.app.View_CharacterSheet_Field
-                    style="@style/View_CharacterSheet_Field"
-                    android:id="@+id/fortSave"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    rpg-droid:value="3"
-                    rpg-droid:label="Fort:"/>
+            <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                style="@style/View_CharacterSheet_Field"
+                android:id="@+id/intScore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                rpg-droid:label="@string/label_AbilityINT"/>
 
-                <Space
-                    style="@style/View_CharacterSheet_Space"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+            <Space
+                style="@style/View_CharacterSheet_Space"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                style="@style/View_CharacterSheet_Field"
+                android:id="@+id/dexScore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                rpg-droid:label="@string/label_AbilityDEX"/>
+            <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                style="@style/View_CharacterSheet_Field"
+                android:id="@+id/refSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                rpg-droid:label="@string/label_SaveReflex"/>
+            <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                style="@style/View_CharacterSheet_Field"
+                android:id="@+id/wisScore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                rpg-droid:label="@string/label_AbilityWIS"/>
+            <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                style="@style/View_CharacterSheet_Field"
+                android:id="@+id/wilSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                rpg-droid:label="@string/label_SaveWillpower"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                style="@style/View_CharacterSheet_Field"
+                android:id="@+id/conScore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                rpg-droid:label="@string/label_AbilityCON"/>
+            <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                style="@style/View_CharacterSheet_Field"
+                android:id="@+id/fortSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                rpg-droid:label="@string/label_SaveFortitude"/>
+            <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                style="@style/View_CharacterSheet_Field"
+                android:id="@+id/chaScore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                rpg-droid:label="@string/label_AbilityCHA"/>
+            <Space
+                style="@style/View_CharacterSheet_Space"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </LinearLayout>
 
-                <com.thing.rpg_droid.app.View_CharacterSheet_Field
-                    style="@style/View_CharacterSheet_Field"
-                    android:id="@+id/chaScore"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    rpg-droid:value="17"
-                    rpg-droid:label="CHA [mod]"/>
-            </LinearLayout>
-
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/View_CharacterSheet_Heading"
+                android:layout_width="wrap_content"
+                android:layout_h-eight="wrap_content"
+                android:text="Other"/>
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:layout_margin="4dp"
                 android:background="#FF000000"/>
+        </LinearLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <com.thing.rpg_droid.app.View_CharacterSheet_Field
-                    style="@style/View_CharacterSheet_Field"
-                    android:id="@+id/baseAttack"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    rpg-droid:value="3"
-                    rpg-droid:label="Base Attack:"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                style="@style/View_CharacterSheet_Field"
+                android:id="@+id/baseAttack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                rpg-droid:label="@string/label_BaseAttack"/>
 
-                <Space
-                    style="@style/View_CharacterSheet_Space"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+            <Space
+                style="@style/View_CharacterSheet_Space"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
-                <com.thing.rpg_droid.app.View_CharacterSheet_Field
-                    style="@style/View_CharacterSheet_Field"
-                    android:id="@+id/spellResist"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    rpg-droid:value="3"
-                    rpg-droid:label="Spell Resistance:"/>
-            </LinearLayout>
-
+            <com.thing.rpg_droid.app.View_CharacterSheet_Field
+                style="@style/View_CharacterSheet_Field"
+                android:id="@+id/spellResist"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                rpg-droid:label="@string/label_SpellResist"/>
         </LinearLayout>
 
     </LinearLayout>

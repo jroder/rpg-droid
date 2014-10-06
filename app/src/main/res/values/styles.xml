@@ -6,23 +6,29 @@
     </style>
 
     <style name="View_CharacterSheet_Space">
-        <item name="android:layout_margin">6dp</item>
+        <item name="android:layout_margin">@dimen/field_margin</item>
+    </style>
+
+    <style name="View_CharacterSheet_Heading">
+        <item name="android:layout_marginLeft">@dimen/heading_margin</item>
+        <item name="android:layout_marginRight">@dimen/heading_margin</item>
+        <item name="android:textSize">@dimen/heading_fontsize</item>
     </style>
 
     <style name="View_CharacterSheet_Field">
-        <item name="android:layout_margin">6dp</item>
-        <item name="android:padding">8dp</item>
-        <item name="borderWidth">0dp</item>
-        <item name="borderColor">#000000</item>
-        <item name="cornerRadius">5dp</item>
-        <item name="labelFontSize">7dp</item>
+        <item name="android:layout_margin">@dimen/field_margin</item>
+        <item name="android:padding">@dimen/field_padding</item>
+        <item name="borderWidth">@dimen/field_borderwidth</item>
+        <item name="borderColor">#ff206ec8</item>
+        <item name="cornerRadius">@dimen/field_cornerradius</item>
+        <item name="labelFontSize">@dimen/field_labelfontsize</item>
         <item name="labelColor">#ff858585</item>
-        <item name="valueFontSize">20dp</item>
+        <item name="valueFontSize">@dimen/field_valuefontsize</item>
     </style>
 
     <style name="Divider">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_height">@dimen/divider_thickness</item>
         <item name="android:background">#ff555555</item>
     </style>
 

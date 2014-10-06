@@ -5,6 +5,38 @@
     <string name="label_ok">OK</string>
     <string name="label_cancel">Cancel</string>
 
+    <string name="label_Name">Name:</string>
+    <string name="label_Level">Level:</string>
+    <string name="label_Class">Class:</string>
+    <string name="label_Race">Race:</string>
+    <string name="label_Age">Age:</string>
+    <string name="label_Gender">Gender:</string>
+    <string name="label_Height">Height:</string>
+    <string name="label_Weight">Weight:</string>
+    <string name="label_Hair">Hair:</string>
+    <string name="label_Eyes">Eyes:</string>
+    <string name="label_BaseSpeed">Base Spd:</string>
+    <string name="label_SwimSpeed">Swim Spd:</string>
+    <string name="label_ClimbSpeed">Climb Spd:</string>
+    <string name="label_BurrowSpeed">Burrow Spd:</string>
+    <string name="label_FlySpeed">Fly Spd:</string>
+    <string name="label_Maneuver">Maneuver:</string>
+    <string name="label_AbilitySTR">STR</string>
+    <string name="label_AbilityDEX">DEX</string>
+    <string name="label_AbilityCON">CON</string>
+    <string name="label_AbilityINT">INT</string>
+    <string name="label_AbilityWIS">WIS</string>
+    <string name="label_AbilityCHA">CHA</string>
+    <string name="label_SaveFortitude">Fort:</string>
+    <string name="label_SaveReflex">Reflex:</string>
+    <string name="label_SaveWillpower">Will:</string>
+    <string name="label_BaseAttack">Base Attack:</string>
+    <string name="label_SpellResist">Spell Resist:</string>
+
+    <string name="desc_CharPicture">Character Picture</string>
+
+
+
 
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>

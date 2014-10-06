@@ -40,9 +40,11 @@ public class Character implements ICharacter
 
     private int mBaseAttackBonus = 0;
 
-    private ArmorClass mArmorClass = new ArmorClass();
+    private ArmorClass mArmorClass = new ArmorClass(this);
 
     private int mSpellResistance = 0;
+
+    private Initiative mInitiative = new Initiative(this);
 
 	private EnumMap<Ability.AbilityName, Ability> mAbilities = new EnumMap<Ability.AbilityName, Ability>(Ability.AbilityName.class);
 
@@ -100,7 +102,7 @@ public class Character implements ICharacter
     {
         for (String lSkillName : Skill.standardList.keySet())
         {
-            Skill lSkill = new Skill(0, 0, lSkillName, Skill.standardList.get(lSkillName), false);
+            Skill lSkill = new Skill(this, 0, 0, lSkillName, Skill.standardList.get(lSkillName), false);
 
             mSkills.add(lSkill);
         }
@@ -178,6 +180,8 @@ public class Character implements ICharacter
     public int getSpellResistance() { return mSpellResistance; }
 
     public void setSpellResistance(int pValue) { mSpellResistance = pValue; }
+
+    public Initiative getInitiative() { return mInitiative; }
 	
 	public Ability getAbility(Ability.AbilityName pName) { return mAbilities.get(pName); }
 

@@ -10,6 +10,12 @@ public class ArmorClass {
 
     private int mMiscModifier = 0;
 
+    private Character mCharacter = null;
+
+    public ArmorClass(Character pCharacter)
+    {
+        mCharacter = pCharacter;
+    }
 
     public int getArmorBonus()
     {
@@ -25,14 +31,12 @@ public class ArmorClass {
 
     public int getDexModifier()
     {
-        return 0;
-        //TODO get dex from char
+        return mCharacter.getAbility(Ability.AbilityName.DEX).getCurrentModifier();
     }
 
     public int getSizeModifier()
     {
-        return 0;
-        //TODO get size from char, invert it
+        return - mCharacter.getSize().getValue();
     }
 
     public int getNaturalArmor()
@@ -48,7 +52,7 @@ public class ArmorClass {
     public int getDeflectionModifier()
     {
         return 0;
-        //scrape gear and active spells for deflection
+        //TODO scrape gear and active spells for deflection
     }
 
     public int getMiscModifier()
@@ -70,7 +74,8 @@ public class ArmorClass {
             case Touch:
                 return 10 + getDexModifier() + getSizeModifier() + getDeflectionModifier() + getMiscModifier();
             case FlatFooted:
-                return 10 + getArmorBonus() + getSizeModifier() + getNaturalArmor() + getDeflectionModifier() + getMiscModifier();
+                return 10 + getArmorBonus() + Math.min(getDexModifier(), 0) + getSizeModifier() + getNaturalArmor() +
+                        getDeflectionModifier() + getMiscModifier();
             default:
                 return 10 + getArmorBonus() + getShieldBonus() + getDexModifier() + getSizeModifier() + getNaturalArmor() +
                         getDeflectionModifier() + getMiscModifier();
