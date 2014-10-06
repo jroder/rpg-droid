@@ -11,6 +11,7 @@
     <string name="label_Race">Race:</string>
     <string name="label_Age">Age:</string>
     <string name="label_Gender">Gender:</string>
+    <string name="label_Size">Size:</string>
     <string name="label_Height">Height:</string>
     <string name="label_Weight">Weight:</string>
     <string name="label_Hair">Hair:</string>
@@ -30,7 +31,10 @@
     <string name="label_SaveFortitude">Fort:</string>
     <string name="label_SaveReflex">Reflex:</string>
     <string name="label_SaveWillpower">Will:</string>
-    <string name="label_BaseAttack">Base Attack:</string>
+    <string name="label_BaseAttack1">1st:</string>
+    <string name="label_BaseAttack2">2nd:</string>
+    <string name="label_BaseAttack3">3rd:</string>
+    <string name="label_BaseAttack4">4th:</string>
     <string name="label_SpellResist">Spell Resist:</string>
 
     <string name="desc_CharPicture">Character Picture</string>
