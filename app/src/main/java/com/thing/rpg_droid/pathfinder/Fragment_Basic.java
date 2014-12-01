@@ -338,7 +338,7 @@ public class Fragment_Basic extends Fragment
             public void setValue(Object pBoundObj, int pValue) { mCharacter.getAbility(Ability.AbilityName.CHA).setScore(pValue); }
         });
 
-        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.baseAttack), new ViewBinder.EditableNumericBinder() {
+        mViewBinder.addBinding((View_CharacterSheet_Field)lRootView.findViewById(R.id.baseAttack1), new ViewBinder.EditableNumericBinder() {
             @Override
             public int getValue(Object pBoundObj) { return mCharacter.getBaseAttackBonus(); }
 

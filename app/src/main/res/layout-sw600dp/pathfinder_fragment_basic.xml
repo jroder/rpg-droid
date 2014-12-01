@@ -297,7 +297,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    rpg-droid:label="@string/label_BaseAttack"/>
+                    rpg-droid:label="@string/label_BaseAttack1"/>
                 <Space style="@style/View_CharacterSheet_Space"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

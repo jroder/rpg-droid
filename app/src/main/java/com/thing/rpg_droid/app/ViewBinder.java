@@ -59,6 +59,21 @@ public class ViewBinder {
         public boolean getReadOnly(Object pBoundObj) { return false; }
     }
 
+    public abstract static class ChoiceBinder<T extends Enum> extends Binder {
+
+        @Override
+        public String getDisplayValue(Object pBoundObj) { return this.getValue(pBoundObj).toString(); }
+
+        public abstract T getValue(Object pBoundObj);
+
+        public void setValue(Object pBoundObj, T pValue) { }
+    }
+
+    public abstract static class ChoiceBinderBinder<T> extends Binder {
+
+        public boolean getReadOnly(Object pBoundObj) { return false; }
+    }
+
     private class Binding {
 
         protected View mField;
@@ -81,6 +96,8 @@ public class ViewBinder {
                             LaunchTextInputDialog();
                         } else if (pBinder instanceof NumericBinder) {
                             LaunchNumericInputDialog();
+                        } else if (pBinder instanceof ChoiceBinder) {
+                            LaunchChoiceDialog();
                         }
 
                         return false;
@@ -147,6 +164,41 @@ public class ViewBinder {
             AlertDialog.Builder lBuilder = new AlertDialog.Builder(ViewBinder.this.mContext);
 
             lBuilder.setTitle("New Value");
+
+            final EditText lEdit = new EditText(ViewBinder.this.mContext);
+
+            lEdit.setText(((StringBinder) mBinder).getValue(ViewBinder.this.mBoundObject));
+
+            lBuilder.setView(lEdit);
+
+            lBuilder.setPositiveButton(R.string.label_ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface lDialog, int which)
+                {
+                    ((StringBinder) mBinder).setValue(ViewBinder.this.mBoundObject, lEdit.getText().toString());
+                    Binding.this.updateField();
+
+                    lDialog.dismiss();
+                }
+            }).setNegativeButton(R.string.label_cancel, new DialogInterface.OnClickListener()
+            {
+                @Override
+                public void onClick(DialogInterface lDialog, int which)
+                {
+                    lDialog.dismiss();
+                }
+            });
+
+            final AlertDialog lDialog = lBuilder.show();
+        }
+
+        private void LaunchChoiceDialog()
+        {
+            AlertDialog.Builder lBuilder = new AlertDialog.Builder(ViewBinder.this.mContext);
+
+            lBuilder.setTitle("Select Value");
+
+            //TODO make  a combo selector.
 
             final EditText lEdit = new EditText(ViewBinder.this.mContext);
 
